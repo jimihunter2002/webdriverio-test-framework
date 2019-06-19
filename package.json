@@ -4,8 +4,10 @@
   "description": "WebdriverIO Course Content (examples, exercises and sample site)",
   "main": "index.js",
   "scripts": {
-    "start": "http-server sample-site -p 8303",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-server": "http-server sample-site -p 8303",
+    "test": "wdio",
+    "test:watch": "onchange 'sample-site/**/*.[css,js,html]', 'test/**/*.js' -- wd",
+    "start-all": "npm-run-all -l -p start-server"
   },
   "repository": {
     "type": "git",
@@ -19,5 +21,22 @@
   "homepage": "https://github.com/klamping/webdriverio-course-content#readme",
   "dependencies": {
     "http-server": "^0.9.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "glob": "^7.1.4",
+    "node-notifier": "^5.4.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^6.0.0",
+    "selenium-standalone": "^6.16.0",
+    "sync-request": "^6.1.0",
+    "wdio-cucumber-framework": "^2.2.8",
+    "wdio-dot-reporter": "0.0.10",
+    "wdio-mocha-framework": "^0.6.4",
+    "wdio-selenium-standalone-service": "~0.0.10",
+    "webdriverio": "^4.14.4"
   }
 }
